@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thiệp Mời Đám Cưới An & Yến</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="images">
+      <img src="images/chure.jpg" alt="Chú rể" class="fade-in" />
+      <img src="images/codau.jpg" alt="Cô dâu" class="fade-in" />
+    </div>
+
+    <h1 class="slide-in">Lê An&nbsp;&amp;&nbsp;Nguyễn Yến</h1>
+
+    <div class="music-control slide-in" style="text-align:center; margin-top: 10px; margin-bottom: 20px;">
+      <button id="music-toggle" class="music-button">Bật nhạc nền</button>
+    </div>
+
+    <h2 class="slide-in delay1" id="invite-text">Trân trọng kính mời</h2>
+    <p class="slide-in delay2" id="invitation-detail">Đến dự lễ thành hôn của chúng tôi</p>
+    <p class="slide-in delay3" id="wedding-datetime">
+      Vào lúc <strong id="wedding-time">09:00 sáng</strong> Ngày <strong id="wedding-date">15/07/2025</strong>
+    </p>
+    <p class="slide-in delay4" id="wedding-place">
+      Tại: <strong>Mimosa - 130 Trần Hưng Đạo - Núi Đèo - Thủy Nguyên - TP.Hải Phòng</strong>
+    </p>
+    <p class="slide-in delay5 note">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi!</p>
+
+    <!-- Các nút Chỉ đường & Gửi Tiền Mừng -->
+    <div class="slide-in delay6" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <a href="https://maps.app.goo.gl/usnEqKZqPmM9PCvt9" target="_blank" class="button">Chỉ đường</a>
+      <a href="javascript:void(0);" onclick="showQR()" class="button">💝 Gửi Tiền Mừng</a>
+    </div>
+
+    <!-- Lịch sẽ được tạo tự động -->
+    <div class="calendar slide-in delay8" id="calendar-container"></div>
+
+    <div class="countdown slide-in delay7">
+      <h3>Thời gian còn lại đến ngày cưới:</h3>
+      <div id="timer">
+        <span id="days">--</span> ngày
+        <span id="hours">--</span> giờ
+        <span id="minutes">--</span> phút
+        <span id="seconds">--</span> giây
+      </div>
+    </div>
+
+    <audio id="bg-music" loop>
+      <source src="https://anl9x.github.io/Mimosa/music.mp3" type="audio/mpeg" />
+      Trình duyệt không hỗ trợ thẻ audio.
+    </audio>
+  </div>
+
+  <!-- POPUP QR CODE -->
+  <div id="qrPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); z-index:9999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; max-width: 90%; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
+      <h3>Quét mã để gửi tiền mừng</h3>
+      <img src="images/qrcode.jpg" alt="QR Code" style="max-width: 300px; width: 100%; border-radius: 8px; margin: 10px 0;">
+      <br>
+      <button onclick="hideQR()" style="padding: 8px 16px; background: #333; color: white; border: none; border-radius: 5px;">Đóng</button>
+    </div>
+  </div>
+
+  <!-- Hiệu ứng trái tim bay -->
+  <script>
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.bottom = "-20px";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }, 500);
+  </script>
+
+  <!-- JS cho QR popup -->
+  <script>
+    function showQR() {
+      document.getElementById("qrPopup").style.display = "flex";
+    }
+    function hideQR() {
+      document.getElementById("qrPopup").style.display = "none";
+    }
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>
